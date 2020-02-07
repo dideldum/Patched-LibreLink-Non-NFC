@@ -238,28 +238,28 @@ müssen die Entwickleroptionen eingeschaltet sein und "USB Debugging"
 muss in den Entwickleroptionen aktiviert sein.
 
 #### 7.1.1 Shell auf Miniphone öffnen
-Man öffnet ein Kommando-Fenster und gibt "adb shell" ein und bestätigt
-mit <Return>. Dabei sollte das Miniphone das einzige verbundene sein,
+Man öffnet ein Kommando-Fenster und gibt `adb shell` ein und bestätigt
+mit `<Return>`. Dabei sollte das Miniphone das einzige verbundene sein,
 ansonsten muss man genauer spezifizieren, mit welchem Smartphone sich
 ADB verbinden soll.
 
 #### 7.1.2 Root in der shell werden
 Nun befindet man sich in der Kommandozeile auf dem Smartphone. Hier wird
-"su" eingegeben und mit <Return> bestätigt.
+`su` eingegeben und mit `<Return>` bestätigt.
 
 Jetzt erscheint auf dem gerooteten Smartphone ein Dialog, auf dem man
 bestätigen muss, dass man mit der Shell auch Root-Zugriff bekommen darf.
 Das bestätigt man. Dieser Vorgang ist einmalig, danach kann man den
-Befehl "su" immer ausführen, ohne das erneut bestätigen zu müssen.
+Befehl `su` immer ausführen, ohne das erneut bestätigen zu müssen.
 
 #### 7.1.3 bt_config.conf auf PC übertragen
-Nun mit "cd /data/misc/bluedroid" und <Return> in das
+Nun mit `cd /data/misc/bluedroid` und `<Return>` in das
 Konfigurationsverzeichnis für Bluetooth wechseln. Dieser Speicherbereich
 ist normalerweise nicht zugänglich, nur für root.
 
 Hier sollte eine Datei "bt_config.conf" existieren. Sollte das nicht der
-Fall sein, hier in der shell einmal "am force-stop
-com.android.bluetooth" und <Return> eingeben, danach in den Android
+Fall sein, hier in der shell einmal `am force-stop
+com.android.bluetooth` und `<Return>` eingeben, danach in den Android
 Einstellungen Bluetooth anschalten. Nun ist die Datei "bt_config.conf"
 erzeugt. In dieser stehen Schlüssel für die Bluetooth-Kommunikation.
 Diese Datei vom Miniphone muss zum Starten auf dem NFC-Smartphone
@@ -269,15 +269,15 @@ Verschlüsselung abläuft, die das Miniphone versteht.
 Dazu wird diese "bt_config.conf" erstmal auf den öffentlichen Speicher
 des Smartphones kopiert. Das kann unter /storage/sdcard (bei nur
 internem Speicher) oder auch /storage/sdcard0 oder /storage/sdcard1
-sein. Das Kommando zum Kopieren ist "cp /data/misc/bt_config.conf
-/storage/sdcard/", wobei das sdcard eben eventuell durch den auf dem
-eigenen Nicht-NFC-Smartphone existierenden ersetzt werden muss.
+sein. Das Kommando zum Kopieren ist `cp /data/misc/bt_config.conf
+/storage/sdcard/`, wobei das `sdcard` eben eventuell durch den auf dem
+eigenen Nicht-NFC-Smartphone existierenden Namen ersetzt werden muss.
 
-Danach verlässt man die root shell mit "exit" und <Return>, dann noch
-einmal "exit" und <Return> zum Verlassen der adb shell auf dem Handy.
+Danach verlässt man die root shell mit `exit` und `<Return>`, dann noch
+einmal `exit` und `<Return>` zum Verlassen der adb shell auf dem Handy.
 
-Nun ist man wieder auf der Kommandozeile des PC. Hier gibt man ein "adb
-pull /storage/sdcard/bt_config.conf", dabei ist der Pfad mit sdcard
+Nun ist man wieder auf der Kommandozeile des PC. Hier gibt man ein `adb
+pull /storage/sdcard/bt_config.conf`, dabei ist der Pfad mit sdcard
 wieder gegebenenfalls durch sdcard0 oder sdcard1 zu ersetzen. Die
 bt_config.conf Datei des Miniphones ohne NFC sollte nun im aktuellen
 Verzeichnis auf dem PC liegen.
@@ -293,11 +293,19 @@ sein.
 Jetzt wird das NFC-Phone sozusagen zum Miniphone gemacht.
 
 #### 7.2.1 Individuelle Konfiguration auf das NFC-Phone flashen
-Das NFC-Phone bleibt noch ausgeschaltet. Im SP Flash Tool wird jetzt
-die Scatter-Datei des NFC-Phones geladen. Im Download-Fenster werden
-alle Häkchen außer bei nvcfg, nvdata und nvram weggemacht. In diesen
-drei Zeilen klickt man auf den Location-Bereich und wählt dann die
-entsprechenden Dateien aus dem Miniphone-Verzeichnis aus.
+**Warnung: Im folgenden werden drei Partitionen auf den NFC-Phone mit
+denen des Miniphones überschrieben. Hierbei ist sicherzustellen, dass
+die Partitionsgrößen gleich sind. Nach dem Backup der Firmware (6.2)
+sind in jedem Backup-Verzeichnis die Paritions-Dateien. Es ist zu
+überprüfen, dass die Dateien nvcfg, nvdata und nvram (eventuell mit
+Datei-Erweiterung ".img") vom Miniphone nicht größer sind als vom
+NFC-Phone!**
+
+Das NFC-Phone bleibt noch ausgeschaltet. Im SP Flash Tool wird
+jetzt die Scatter-Datei des NFC-Phones geladen. Im Download-Fenster
+werden alle Häkchen außer bei nvcfg, nvdata und nvram weggemacht. In
+diesen drei Zeilen klickt man auf den Location-Bereich und wählt dann
+die entsprechenden Dateien aus dem Miniphone-Verzeichnis aus.
 
 Das ganze sollte dann so aussehen:
 
@@ -317,24 +325,24 @@ angeschaltet werden. Es wird weiter mit dem PC verbunden. Auch hier muss
 wieder USB-Debugging in den Entwickleroptionen angeschaltet sein.
 
 Im vorher schon benutzten Kommando-Fenster auf dem PC gibt man jetzt ein
-"adb push bt_config.conf /storage/sdcard" und <Return>, wobei für
+`adb push bt_config.conf /storage/sdcard` und `<Return>`, wobei für
 "sdcard" das gleiche gilt wie vorher beim Export der
 bt_config.conf-Datei vom Miniphone.
 
-Danach "adb shell" und <Return> eingeben.
+Danach `adb shell` und `<Return>` eingeben.
 
-Dann wieder mit "su" zu root werden (alles findet analog zum Miniphone
+Dann wieder mit `su` zu root werden (alles findet analog zum Miniphone
 vorher statt, ich verzichte daher auf weitere Hinweise bezüglich der
 Pfade mit sdcard/sdcard0/sdcard1).
 
-Jetzt den Befehl "cp /storage/sdcard/bt_config.conf
-/data/misc/bluedroid/" und <Return> eingeben.
+Jetzt den Befehl `cp /storage/sdcard/bt_config.conf
+/data/misc/bluedroid/` und `<Return>` eingeben.
 
-Nun den Befehl "chown bluetooth:bluetooth
-/data/misc/bluedroid/bt_config.conf" und <Return> eingeben.
+Nun den Befehl `chown bluetooth:bluetooth
+/data/misc/bluedroid/bt_config.conf` und `<Return>` eingeben.
 
-Jetzt Bluetooth einmal mit dem Befehl "am force-stop
-com.android.bluetooth" stoppen.
+Jetzt Bluetooth einmal mit dem Befehl `am force-stop
+com.android.bluetooth` stoppen.
 
 Danach Bluetooth in den Android Einstellungen wieder anschalten.
 
@@ -358,9 +366,9 @@ Das Miniphone ist immer noch aus.
  
 Das NFC-Handy wird wieder mit dem USB-Kabel an den PC verbunden.
 
-Im Kommando-Fenster wird das Kommando eingegeben "adb backup -f
-librelink.backup com.freestylelibre.app.de" und <Return>. Der Name
-"librelink.backup" kann dabei frei geweählt werden.
+Im Kommando-Fenster wird das Kommando eingegeben `adb backup -f
+librelink.backup com.freestylelibre.app.de` und `<Return>`. Der Name
+`librelink.backup` kann dabei frei gewählt werden.
 
 Nun wird das NFC-Handy ausgeschaltet. Auch hier wieder gilt: richtig
 herunterfahren, nicht einfach nur kurz den Ein/Aus-Schalter betätigen!
