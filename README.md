@@ -4,10 +4,15 @@
 Mit dem Libre 2 Sensor werden minütlich die Glukosewerte
 zu einem Empfangsgerät übertragen.
 
-Die Standardlösung von Abbott mit der originalen LibreLink App erlaubt dabei, dass auf dem Smartphone Alarme ausgelöst werden können.
-Der Benutzer sieht aber keine Werte - dafür muss er mit dem NFC-fähigen Smartphone oder dem Lesegerät scannen.
-Findige IT-Spezialisten haben die LibreLink App so verändert, dass man die Werte, die ja sowieso minütlich auf dem Smartphone von der LibreLink App empfangen werden, an xDrip+ weitergeleitet wrden können.
-Dort werden sie (regulär im 5-Minuten-Takt, in einer zusätzlichen Detailansicht aber auch mit den minütlichen Werten) kontinuierlich angezeigt.
+Die Standardlösung von Abbott mit der originalen LibreLink App erlaubt
+dabei, dass auf dem Smartphone Alarme ausgelöst werden können. Der
+Benutzer sieht aber keine Werte - dafür muss er mit dem NFC-fähigen
+Smartphone oder dem Lesegerät scannen. Findige IT-Spezialisten haben die
+LibreLink App so verändert, dass man die Werte, die ja sowieso minütlich
+auf dem Smartphone von der LibreLink App empfangen werden, an xDrip+
+weitergeleitet werden können. Dort werden sie (regulär im
+5-Minuten-Takt, in einer zusätzlichen Detailansicht aber auch mit den
+minütlichen Werten) kontinuierlich angezeigt.
  
 Damit das funkioniert, muss dieses Smartphone NFC haben. Denn der Libre 2 sendet die minütlichen Werte per Bluetooth nur an das Smartphone (oder Abbott-Lesegerät), mit dem er gestartet wird.
 Deshalb darf man den Libre 2 auch nicht mit dem Lesegerät starten, wenn man die Werte kontinuierlich auf dem Smartphone haben will. Nur das Startgerät erhält die kontinuierlichen Werte.
@@ -34,7 +39,19 @@ Idealerweise würde unsere Tochter eine Full Android Uhr im Bauchband haben, abe
 Ein normales Smartphone würde immer irgendwo liegen bleiben. Ein Miniphone wie das Melrose 2019, das Ulcool U2 oder einige andere (Soyes, Anica, Melrose und Ulcool sind die vier mir bekannten Miniphone-Marken) lässt sich gut in eine Tasche im Bauchband zur Pumpe stecken und ist dann immer dabei.
 
 ## 3. Gibt es keine Miniphones mit NFC?
-Mir bekannt ist nur ein aktuelles: Das Unihertz Atom. Das ist mit 250€ aber sehr teuer. Und es ist dicker und schwerer als das Melrose 2019.
+Mir bekannt ist nur ein aktuelles: Das Unihertz Atom. Das ist mit 250€
+aber sehr teuer. Und es ist dicker und schwerer als das Melrose 2019.
+Außerdem habe ich jetzt ein Atom mit dem Libre 2 getestet und war
+erschüttert: das NFC des Atom kommt mit dem Libre 2 gar nicht zurecht.
+Von gefühlten 100 Versuchen, einen laufenden Libre 2 zu scannen und
+einen neuen Libre 2 zu starten, hat das NFC nur in 5 Versuchen überhaupt
+reagiert. In allen Fällen mit Scan-Fehler. Auf meine Nachfragen, wer das
+Atom erfolgreich mit dem Libre 2 benutze, gab es nur eine positive
+Antwort - wobei die gar nicht positiv war, denn die Person berichtete,
+dass sie das Atom bis zu 10 Minuten über den Sensor halten musste, bis
+der endlich mal gescannt wurde. Das Atom ist also für den Libre 2 gar
+nicht brauchbar. Damit ist die Notwendigkeit einer Alternativ-Lösung
+umso deutlicher.
 
 Die chinesischen Miniphones wie die von uns verwendeten liegen im 70€-100€ Bereich. Und das von uns für unsere Tochter präferierte Melrose 2019 ist nur halb so dick wie das Atom und 40g leichter.
 
